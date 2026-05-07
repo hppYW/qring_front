@@ -17,21 +17,23 @@ export const Header = ({ title, leftType = 'back', rightType = 'none', onRightPr
   return (
     <View style={styles.headerContainer}>
       {/* 왼쪽 영역 */}
-      <View style={styles.sideSection}>
-        {leftType === 'back' && (
-          <TouchableOpacity onPress={() => navigation.goBack()} style={styles.iconButton}>
-            <Ionicons name="arrow-back" size={24} color={theme.colors.primary} />
-          </TouchableOpacity>
-        )}
-        {leftType === 'close' && (
-          <TouchableOpacity onPress={() => navigation.goBack()} style={styles.iconButton}>
-            <Ionicons name="close" size={24} color={theme.colors.primary} />
-          </TouchableOpacity>
-        )}
-      </View>
+      {leftType !== 'none' && (
+        <View style={styles.sideSection}>
+          {leftType === 'back' && (
+            <TouchableOpacity onPress={() => navigation.goBack()} style={styles.iconButton}>
+              <Ionicons name="arrow-back" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+          )}
+          {leftType === 'close' && (
+            <TouchableOpacity onPress={() => navigation.goBack()} style={styles.iconButton}>
+              <Ionicons name="close" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+          )}
+        </View>
+      )}
 
-      {/* 중앙 타이틀 영역 */}
-      <View style={styles.centerSection}>
+      {/* 타이틀 영역 */}
+      <View style={[styles.centerSection, leftType === 'none' && { paddingLeft: 0 }]}>
         {title && <Text style={styles.title}>{title}</Text>}
       </View>
 

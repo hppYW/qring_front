@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
-//import type { LearnStackParamList } from '../../types/navigation';
+import type { LearnStackParamList } from '../constants/navigation';
 import type { Category, Episode } from '../constants/contents';
 import { theme } from '../constants/theme';
 import { ScreenWrapper } from '../components/layout/ScreenWrapper';
@@ -30,7 +30,7 @@ const EPISODES: Episode[] = [
 
 // ─── 메인 컴포넌트 ───
 const StoryHomeScreen = () => {
-  //const navigation = useNavigation<NativeStackNavigationProp<LearnStackParamList>>();
+  const navigation = useNavigation<NativeStackNavigationProp<LearnStackParamList>>();
   const [activeCategory, setActiveCategory] = useState('romance');
 
   return (
@@ -83,10 +83,10 @@ const StoryHomeScreen = () => {
             key={ep.id}
             style={styles.card}
             activeOpacity={0.8}
-            //onPress={() => navigation.navigate('ChatLearn', {
-            //  episodeId: ep.id,
-            //  episodeTitle: ep.title,
-            //})}
+            onPress={() => navigation.navigate('ChatLearn', {
+              episodeId: ep.id,
+              episodeTitle: ep.title,
+            })}
           >
             {/* 카드 이미지 영역 */}
             <View style={[styles.cardImage, { backgroundColor: ep.bgColor }]} />

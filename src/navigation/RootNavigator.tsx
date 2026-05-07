@@ -3,6 +3,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { BottomTabNav } from './BottomTabNav';
 import { Button, Text } from 'react-native';
 import { ScreenWrapper } from '../components/layout/ScreenWrapper';
+import ChatLearnScreen from '../screens/ChatLearnScreen';
+import LearningResultScreen from '../screens/LearningResultScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -12,9 +14,6 @@ const SplashScreen = ({ navigation }: any) => (
 );
 const LoginScreen = ({ navigation }: any) => (
   <ScreenWrapper><Text>로그인 화면</Text><Button title="메인으로(로그인 성공)" onPress={() => navigation.navigate('MainTab')} /></ScreenWrapper>
-);
-const LearningScreen = ({ navigation }: any) => (
-  <ScreenWrapper><Text>학습(채팅) 페이지</Text><Button title="결과창 보기" onPress={() => navigation.navigate('Result')} /></ScreenWrapper>
 );
 const ResultScreen = ({ navigation }: any) => (
   <ScreenWrapper><Text>학습 완료 결과창</Text><Button title="홈으로 돌아가기" onPress={() => navigation.navigate('MainTab')} /></ScreenWrapper>
@@ -31,8 +30,8 @@ export const RootNavigator = () => {
       <Stack.Screen name="MainTab" component={BottomTabNav} />
       
       {/* Learning Flow (하단 탭이 없는 화면들) */}
-      <Stack.Screen name="Learning" component={LearningScreen} />
-      <Stack.Screen name="Result" component={ResultScreen} />
+      <Stack.Screen name="ChatLearn" component={ChatLearnScreen} />
+      <Stack.Screen name="LearningResult" component={LearningResultScreen} />
     </Stack.Navigator>
   );
 };
