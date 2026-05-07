@@ -52,7 +52,7 @@ const DUMMY_MESSAGES: Message[] = [
               "amused",
               "amazed",
               "ashamed"],
-      correctIndex: 1,
+      correctIndex: 0,
     },
   },
 ];
@@ -237,10 +237,12 @@ const styles = StyleSheet.create({
 
   // ── 퀴즈 카드 ──
   quizCard: {
+    position: 'absolute',
     backgroundColor: '#FFFFFF',
     borderRadius: 24,
-    marginTop: 16,
-    marginHorizontal: -16,
+    marginTop: 230,
+    marginLeft: 20,
+    marginHorizontal: -20,
     paddingHorizontal: 24,
     paddingTop: 28,
     paddingBottom: 24,
